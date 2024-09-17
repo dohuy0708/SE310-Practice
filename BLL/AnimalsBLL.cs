@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace BLL
 {
-   public class AnimalsBLL
+    public class AnimalsBLL
     {
         private AnimalsBLL() { }
         private static AnimalsBLL instance;
@@ -28,18 +28,42 @@ namespace BLL
         }
         public int CountMilkCow()
         {
-           int count = AnimalsAccess.Instance.CountMilkCow();
+            int count = AnimalsAccess.Instance.CountMilkCow();
             return count;
         }
         public int CountMilkSheep()
         {
-            int count = AnimalsAccess.Instance.CountMilkGoat();
+            int count = AnimalsAccess.Instance.CountMilkSheep();
             return count;
         }
         public int CountMilkGoat()
         {
-            int count = AnimalsAccess.Instance.CountMilkSheep();
+            int count = AnimalsAccess.Instance.CountMilkGoat();
             return count;
+        }
+        public int CountChildGoat()
+        {
+            int count = AnimalsAccess.Instance.CountChildGoat();
+            return count;
+        }
+        public int CountChildCow()
+        {
+            int count = AnimalsAccess.Instance.CountChildCow();
+            return count;
+        }
+        public int CountChildSheep()
+        {
+            int count = AnimalsAccess.Instance.CountChildSheep();
+            return count;
+        }
+
+        public void Delete()
+        {
+            AnimalsAccess.Instance.Reset();
+        }
+        public void Insert(int num, int child, int milk, string name)
+        {
+            AnimalsAccess.Instance.Insert(num, child, milk, name);
         }
     }
 }

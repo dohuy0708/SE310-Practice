@@ -27,6 +27,16 @@ namespace Animals
         private void button1_Click(object sender, EventArgs e)
         {
             // gọi hàm insert to DB
+            Cow cow = new Cow();
+            Sheep sheep = new Sheep();
+            Goat goat = new Goat();
+            int numCow = Convert.ToInt32(TxtCow.Text);
+            int numSheep = Convert.ToInt32(TxtSheep.Text);
+            int numGoat= Convert.ToInt32(TxtGoat.Text);
+            AnimalsBLL.Instance.Insert(numCow, cow.Child, cow.Milk, "Cow");
+            AnimalsBLL.Instance.Insert(numSheep, sheep.Child, sheep.Milk, "Sheep");
+            AnimalsBLL.Instance.Insert(numGoat, goat.Child, goat.Milk, "Goat");
+
         }
 
         private void BtnSound_Click(object sender, EventArgs e)
@@ -65,16 +75,17 @@ namespace Animals
         private void BtnReset_Click(object sender, EventArgs e)
         {
             // gọi hàm Reset DB về 
+            AnimalsBLL.Instance.Delete();
         }
 
         private void BtnChild_Click(object sender, EventArgs e)
         {
-           /* int countCow = AnimalsBLL.Instance.CountMilkCow();
-            int countSheep = AnimalsBLL.Instance.CountMilkSheep();
-            int countGoat = AnimalsBLL.Instance.CountMilkGoat();
-            MessageBox.Show(" Amount milk of Cows is: " + countCow);
-            MessageBox.Show(" Amount milk of Sheep is: " + countSheep);
-            MessageBox.Show(" Amount milk of Goat is: " + countGoat);*/
+            int countCow = AnimalsBLL.Instance.CountChildCow();
+            int countSheep = AnimalsBLL.Instance.CountChildSheep();
+            int countGoat = AnimalsBLL.Instance.CountChildGoat();
+            MessageBox.Show(" Numbers Child of Cows is: " + countCow);
+            MessageBox.Show(" Numbers Child of Sheep is: " + countSheep);
+            MessageBox.Show(" Numbers Child of Goat is: " + countGoat);
         }
     }
 }
